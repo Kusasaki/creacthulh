@@ -6,7 +6,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import MyTabs from './components/tabs_navigation/MyTabs'
 
-function FirstScreen({ navigation }) {
+const Tab = createMaterialTopTabNavigator();
 
 function Demarrage({ navigation }) {
   return (
