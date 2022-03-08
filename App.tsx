@@ -7,23 +7,35 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import MyTabs from './components/tabs_navigation/MyTabs'
 
 function FirstScreen({ navigation }) {
+
+function Demarrage({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Bienvenue dans CréaCthulh</Text>
       <Button
-        title="Accueil"
+        title="Continuer"
         onPress={() => navigation.navigate('Accueil')}
       />
     </View>
   );
 }
 
-const Tab = createMaterialTopTabNavigator();
-
 function Accueil({ navigation }) {
   return (
-      <View style={styles.blanc}>
-        <MyTabs></MyTabs>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Mes personnages : </Text>
+      <Button
+        title="Modifier"
+        onPress={() => navigation.navigate('Personnage1')}
+      />
+    </View>
+  );
+}
+
+function Personnage1({ navigation }) {
+  return (
+    <View style={styles.blanc}>
+      <MyTabs></MyTabs>
     </View>
   );
 }
@@ -34,8 +46,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Démarrage">
-        <Stack.Screen name="Démarrage" component={FirstScreen} />
+        <Stack.Screen name="Démarrage" component={Demarrage} />
         <Stack.Screen name="Accueil" component={Accueil} />
+        <Stack.Screen name="Personnage1" component={Personnage1} />
       </Stack.Navigator>
     </NavigationContainer>
   );
