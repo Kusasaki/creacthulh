@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import MyTabs from './components/tabs_navigation/MyTabs'
+import MyTopTabs from './components/top_tabs_navigation/MyTabs'
+import MyBottomTabs from './components/bottom_tabs_navigation_1/MyTabs'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -24,18 +25,23 @@ function Accueil({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Mes personnages : </Text>
+      <Text>Personnage1</Text>
       <Button
-        title="Modifier"
+        title="Détails"
+        onPress={() => navigation.navigate('Personnage1')}
+      />
+      <Button
+        title="Supprimer"
         onPress={() => navigation.navigate('Personnage1')}
       />
     </View>
   );
 }
 
-function Personnage1({ navigation }) {
+function Personnage1() {
   return (
     <View style={styles.blanc}>
-      <MyTabs></MyTabs>
+      <MyTopTabs></MyTopTabs>
     </View>
   );
 }
