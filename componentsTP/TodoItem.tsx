@@ -19,13 +19,13 @@ export default class TodoItem extends Component<TodoItemProps, {}> {
     });
   };
   
-  onDelete = (task: string) => {
-    removeTodo();
-  }
-
-  removeTodo = () => {
+  removeTodo = (task: string) => {
     todoService.remove(task);
     this.loadTodos;
+  }
+
+  onDelete = () => {
+    this.removeTodo;
   }
 
   render() {
@@ -49,9 +49,6 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: "row",
     margin: 10,
-  },
-  content_container: {
-    flex: 1,
-    margin: 5,
+    justifyContent: "space-around",
   },
 });

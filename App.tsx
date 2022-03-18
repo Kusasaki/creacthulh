@@ -4,26 +4,25 @@ import TodoList from "./componentsTP/TodoList";
 import { Header as HeaderRNE } from 'react-native-elements';
 import todoService from "./servicesTP/todo.service";
 
+import Input from "./componentsTP/Input";
+
 interface AppState {
 }
 
 export default class App extends Component<{}, AppState> {
   state: AppState = {
   };
+  
+  addTodo = (task: string) => {
+    todoService.add(task);
+    this.loadTodos();
+  }
 
   loadTodos = () => {
     // Load all modules
-    todoService.getAll().then((todo) => {
-      // Show all modules by default
-      let displayedTodos = todo;
-      this.setState({ todos: displayedTodos });
+    todoService.getAll().then((todos) => { this.setState({ todos: todos });
     });
   };
-
-  addTodo = (task: string) => {
-      todoService.add(task);
-      this.loadTodos();
-  }
 
   render() {
     const todosList = <TodoList />;
@@ -34,10 +33,10 @@ export default class App extends Component<{}, AppState> {
             centerComponent={{ text: 'Todo Native', style: styles.heading }}
         />
         <View style={styles.inputContainer}>
-            <TextInput
-            style={styles.inputs}
-            placeholder="Saisissez une nouvelle tâche"
-            />
+          <Input
+              placeholder="Saissisez une nouvelle tâche"
+              onSubmittingEdit={this.addTodo}
+          />
         </View>
         {todosList}
       </View>
@@ -78,5 +77,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
+  },
+  buttonContainer: {
+    height: 45,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
+    width: 250,
+    borderRadius: 30,
+  },
+  signInButton: {
+    backgroundColor: "skyblue",
+  },
+  loginText: {
+    color: "white",
   },
 });
