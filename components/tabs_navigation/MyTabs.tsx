@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import CaractScreen from "./CaractScreen";
-import HistScreen from "./HistScreen";
-import AvatarScreen from "./AvatarScreen";
+import CaractScreen from "../../screens/CaractScreen";
+import HistScreen from "../../screens/HistScreen";
+import AvatarScreen from "../../screens/AvatarScreen";
 
 const Tab = createMaterialTopTabNavigator();
 

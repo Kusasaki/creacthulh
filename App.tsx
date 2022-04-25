@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,3 +27,11 @@ const styles = StyleSheet.create({
     height: 50,
   }
 });
+=======
+import React from "react";
+import { TabNavigator } from "./navigation/top-tab-navigation";
+
+export default function App() {
+  return <TabNavigator></TabNavigator>;
+}
+>>>>>>> Stashed changes
