@@ -8,7 +8,7 @@ import { RootStackParamList, HistoireStackScreen, CaracteristiquesStackScreen, A
 const Tab = createMaterialTopTabNavigator<RootStackParamList>()
 export const TabNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color }) => {
@@ -17,9 +17,9 @@ export const TabNavigator = () => {
             if (route.name === "Histoire") {
               iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
             } else if (route.name === "Caracteristiques") {
-                iconName = focused ? "ios-list-sharp" : "ios-list-outline";
+                iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
             } else if (route.name === "Avatar") {
-                iconName = focused ? "ios-list-sharp" : "ios-list-outline";
+                iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
             }
 
             // You can return any component that you like here!

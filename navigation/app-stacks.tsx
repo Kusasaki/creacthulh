@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Personnage } from '../services/personnage.model';
 import PersonnagesScreen from "../screens/PersonnagesScreen";
+import DetailsScreen from "../screens/DetailsScreen";
 
 import HistScreen from "../screens/HistScreen";
 import CaractScreen from "../screens/CaractScreen";
@@ -15,6 +16,7 @@ import { RouteProp } from "@react-navigation/native";
 // undefined = no params passed to view
 export type RootStackParamList = {
   Personnages: undefined;
+  Details: undefined;
   Histoire: undefined;
   Caracteristiques: undefined;
   Avatar: undefined;
@@ -22,6 +24,16 @@ export type RootStackParamList = {
 };
 
 // Define view stack inside home tab
+const HomeStack = createStackNavigator<RootStackParamList>();
+export const PersonnagesStackScreen = () => {
+  return (
+    <HistStack.Navigator>
+      <HistStack.Screen name="Personnages" component={PersonnagesScreen} />
+      <HistStack.Screen name="Details" component={DetailsScreen} />
+    </HistStack.Navigator>
+  );
+};
+
 const HistStack = createStackNavigator<RootStackParamList>();
 export const HistoireStackScreen = () => {
   return (
