@@ -16,7 +16,9 @@ import { RouteProp } from "@react-navigation/native";
 // undefined = no params passed to view
 export type RootStackParamList = {
   Personnages: undefined;
-  Details: undefined;
+  Details: {
+    personnageId: string
+  };
   Histoire: undefined;
   Caracteristiques: undefined;
   Avatar: undefined;
@@ -69,6 +71,11 @@ export const AvatarStackScreen = () => {
 
 export interface PersonnagesScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Personnages">;
+}
+
+export interface DetailsScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
+  route: RouteProp<RootStackParamList, "Details">
 }
 
 export interface HistoireScreenProps {

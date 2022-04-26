@@ -1,8 +1,56 @@
-import * as React from 'react';
+import React, { Component } from "react";
+import { Text, View, Button, FlatList, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { PersonnagesScreenProps, RootStackParamList } from "./navigation/app-stacks";
+import creacthulhdbapiService from "./services/creacthulhdbapi.service";
+import { Personnage } from "./services/personnage.model";
+import { PersonnageList } from "./components/FlatList";
+
+import { TabNavigator } from "./navigation/top-tab-navigation";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+interface PersonnageScreenInterface{
+  personnages:Personnage[]
+}
+
+export default class HomeScreen extends Component<PersonnagesScreenProps, {}> {
+  state:PersonnageScreenInterface = {
+    personnages: []
+  }
+
+  componentDidMount = () => {
+    this.loadPersonnagesById();
+  };
+
+  loadPersonnagesById = (id="") => {
+    creacthulhdbapiService.searchPersonnageById(id).then((content) => {
+    this.setState({personnages:content});
+    });
+  };
+
+  search = (text:string) => {
+    this.loadPersonnagesById(text);
+  };
+
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <PersonnageList
+        personnages={this.state.personnages}
+        navigation={this.props.navigation}
+        />
+      </View>
+    );
+  }
+}
+
+/*import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import { RootStackParamList, PersonnagesStackScreen, PersonnagesScreenProps } from "./navigation/app-stacks";
 
 import { TabNavigator } from "./navigation/top-tab-navigation";
 
@@ -57,4 +105,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default App;*/

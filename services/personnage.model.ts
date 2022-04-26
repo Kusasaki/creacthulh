@@ -1,10 +1,10 @@
 export class Personnage{
-    idPersonnage: number;
+    id: string;
     firstname: string;
     lastname : string;
 
     constructor(idPersonnage, firstname, lastname) {
-        this.idPersonnage = idPersonnage;
+        this.id = idPersonnage;
         this.firstname = firstname;
         this.lastname = lastname;
     }
