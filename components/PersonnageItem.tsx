@@ -17,7 +17,7 @@ export class PersonnageItem extends Component {
     render() {
       return (
         <TouchableOpacity
-        onPress={() => this.props.navigation.navigate("Details", { personnageId : this.props.personnage.id })}>
+        onPress={() => { this.props.navigation.navigate("Details", { personnageId: this.props.personnage.id, }); }} >
           <View style={styles.itemContainer}>
             <Text style={styles.text}>{this.props.personnage.firstname}, {this.props.personnage.lastname}</Text>
           </View>

@@ -1,4 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import { TabNavigator } from "./navigation/top-tab-navigation";
+
+export default function Details() {
+  return <TabNavigator></TabNavigator>;
+}
+
+/*import React, { Component } from "react";
 import { Text, View, Button, FlatList, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { PersonnagesScreenProps, RootStackParamList } from "./navigation/app-stacks";
 import creacthulhdbapiService from "./services/creacthulhdbapi.service";
@@ -9,14 +16,19 @@ import { TabNavigator } from "./navigation/top-tab-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { NavigationProps } from "./navigation/app-stacks";
+
 interface PersonnageScreenInterface{
-  personnages:Personnage[]
+  personnages:Array<Personnage>
 }
 
-export default class HomeScreen extends Component<PersonnagesScreenProps, {}> {
-  state:PersonnageScreenInterface = {
-    personnages: []
-  }
+export default class PersonnagesScreen extends Component<
+  NavigationProps,
+  PersonnageScreenInterface
+  > {
+  state: PersonnageScreenInterface = {
+    personnages: [],
+  };
 
   componentDidMount = () => {
     this.loadPersonnagesById();
@@ -24,7 +36,7 @@ export default class HomeScreen extends Component<PersonnagesScreenProps, {}> {
 
   loadPersonnagesById = (id="") => {
     creacthulhdbapiService.searchPersonnageById(id).then((content) => {
-    this.setState({personnages:content});
+      this.setState({personnages:content});
     });
   };
 
@@ -34,17 +46,18 @@ export default class HomeScreen extends Component<PersonnagesScreenProps, {}> {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center",marginTop:50 }}>
+        <Text>Tous les personnages :</Text>
         <PersonnageList
-        personnages={this.state.personnages}
-        navigation={this.props.navigation}
+          personnages={this.state.personnages}
+          navigation={this.props.navigation}
         />
       </View>
     );
   }
 }
 
-/*function Demarrage({ navigation }) {
+function Demarrage({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Bienvenue dans CréaCthulh</Text>
