@@ -3,12 +3,12 @@ import { Text, View, Button, FlatList, StyleSheet, TouchableOpacity, Image } fro
 import { PersonnagesScreenProps, RootStackParamList } from "../navigation/app-stacks";
 import { Personnage } from "../services/personnage.model";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { PersonnageItem } from "./FlatListItem";
+import { PersonnageItem } from "./PersonnageItem";
 
 interface AppProps{
-    personnages : Personnage[];
-    navigation : StackNavigationProp<RootStackParamList, any>;
-  }
+  personnages : Personnage[];
+  navigation : StackNavigationProp<RootStackParamList, any>;
+}
   
   export class PersonnageList extends Component<AppProps, {}> {
   

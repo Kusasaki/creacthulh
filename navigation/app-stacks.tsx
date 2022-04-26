@@ -69,6 +69,10 @@ export const AvatarStackScreen = () => {
   );
 };
 
+export interface NavigationProps {
+  navigation: StackNavigationProp<RootStackParamList, any>;
+}
+
 export interface PersonnagesScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Personnages">;
 }

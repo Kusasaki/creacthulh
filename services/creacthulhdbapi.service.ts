@@ -1,6 +1,6 @@
 import { Personnage } from "./personnage.model";
 
-const rootEndpoint = 'https://enscpiicreacthulh.azurewebsites.net/api/PersonnagesApi';
+const rootEndpoint = 'https://enscpiiddl.azurewebsites.net/api/PersonnagesApi';
 
 class CreaCthulhDbApi {
   searchPersonnageById(id: string): Promise<Personnage> {

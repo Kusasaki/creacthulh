@@ -3,7 +3,7 @@ import { Text, View, Button, FlatList, StyleSheet, TouchableOpacity, Image } fro
 import { PersonnagesScreenProps, RootStackParamList } from "./navigation/app-stacks";
 import creacthulhdbapiService from "./services/creacthulhdbapi.service";
 import { Personnage } from "./services/personnage.model";
-import { PersonnageList } from "./components/FlatList";
+import { PersonnageList } from "./components/PersonnageList";
 
 import { TabNavigator } from "./navigation/top-tab-navigation";
 import { NavigationContainer } from '@react-navigation/native';
@@ -44,17 +44,7 @@ export default class HomeScreen extends Component<PersonnagesScreenProps, {}> {
   }
 }
 
-/*import * as React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
-import { RootStackParamList, PersonnagesStackScreen, PersonnagesScreenProps } from "./navigation/app-stacks";
-
-import { TabNavigator } from "./navigation/top-tab-navigation";
-
-function Demarrage({ navigation }) {
+/*function Demarrage({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Bienvenue dans CréaCthulh</Text>
