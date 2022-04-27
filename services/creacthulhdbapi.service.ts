@@ -1,9 +1,9 @@
 import { Personnage } from "./personnage.model";
 
-const rootEndpoint = 'https://enscpiicreacthulh.azurewebsites.net/api/PersonnagesApi';
+const rootEndpoint = 'https://enscpiiddl.azurewebsites.net/api/PersonnagesApi';
 
 class CreaCthulhDbApi {
-  searchPersonnageById(id: number): Promise<Personnage> {
+  searchPersonnageById(id: string): Promise<Personnage> {
     return this.fetchFromApi(`${rootEndpoint}/${id}`).then((personnage : Personnage ) => personnage);
   }
 
@@ -22,6 +22,5 @@ class CreaCthulhDbApi {
     );
   }
 }
-  
 
 export default new CreaCthulhDbApi();

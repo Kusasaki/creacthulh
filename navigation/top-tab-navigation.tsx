@@ -2,7 +2,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { RootStackParamList, HistoireStackScreen, CaracteristiquesStackScreen, AvatarStackScreen } from "./app-stacks";
+import { RootStackParamList, PersonnagesStackScreen, HistoireStackScreen, CaracteristiquesStackScreen, AvatarStackScreen } from "./app-stacks";
 
 // Define main tab navigator
 const Tab = createMaterialTopTabNavigator<RootStackParamList>()
@@ -14,7 +14,9 @@ export const TabNavigator = () => {
           tabBarIcon: ({ focused, color }) => {
             let iconName: any; // TODO: find better type
 
-            if (route.name === "Histoire") {
+            if (route.name === "Personnages") {
+              iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
+            } else if (route.name === "Histoire") {
               iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
             } else if (route.name === "Caracteristiques") {
                 iconName = focused ? "ios-information-circle" : "ios-information-circle-outline";
@@ -27,6 +29,7 @@ export const TabNavigator = () => {
           },
         })}
       >
+        <Tab.Screen name="Personnages" component={PersonnagesStackScreen} />
         <Tab.Screen name="Histoire" component={HistoireStackScreen} />
         <Tab.Screen name="Caracteristiques" component={CaracteristiquesStackScreen} />
         <Tab.Screen name="Avatar" component={AvatarStackScreen} />

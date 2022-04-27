@@ -16,7 +16,9 @@ import { RouteProp } from "@react-navigation/native";
 // undefined = no params passed to view
 export type RootStackParamList = {
   Personnages: undefined;
-  Details: undefined;
+  Details: {
+    personnageId: string,
+  }
   Histoire: undefined;
   Caracteristiques: undefined;
   Avatar: undefined;
@@ -27,10 +29,12 @@ export type RootStackParamList = {
 const HomeStack = createStackNavigator<RootStackParamList>();
 export const PersonnagesStackScreen = () => {
   return (
-    <HistStack.Navigator>
-      <HistStack.Screen name="Personnages" component={PersonnagesScreen} />
-      <HistStack.Screen name="Details" component={DetailsScreen} />
-    </HistStack.Navigator>
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Personnages" component={PersonnagesScreen} />
+      <HomeStack.Screen name="Histoire" component={HistScreen} />
+      <HomeStack.Screen name="Caracteristiques" component={CaractScreen} />
+      <HomeStack.Screen name="Avatar" component={AvatarScreen} />
+    </HomeStack.Navigator>
   );
 };
 
@@ -41,6 +45,7 @@ export const HistoireStackScreen = () => {
       <HistStack.Screen name="Histoire" component={HistScreen} />
       <HistStack.Screen name="Caracteristiques" component={CaractScreen} />
       <HistStack.Screen name="Avatar" component={AvatarScreen} />
+      <HistStack.Screen name="Personnages" component={PersonnagesScreen} />
     </HistStack.Navigator>
   );
 };
@@ -52,6 +57,7 @@ export const CaracteristiquesStackScreen = () => {
       <CaractStack.Screen name="Caracteristiques" component={CaractScreen} />
       <CaractStack.Screen name="Histoire" component={HistScreen} />
       <CaractStack.Screen name="Avatar" component={AvatarScreen} />
+      <CaractStack.Screen name="Personnages" component={PersonnagesScreen} />
     </CaractStack.Navigator>
   );
 };
@@ -63,13 +69,24 @@ export const AvatarStackScreen = () => {
       <AvStack.Screen name="Avatar" component={AvatarScreen} />
       <AvStack.Screen name="Caracteristiques" component={CaractScreen} />
       <AvStack.Screen name="Histoire" component={HistScreen} />
+      <AvStack.Screen name="Personnages" component={PersonnagesScreen} />
     </AvStack.Navigator>
   );
 };
 
+export interface NavigationProps {
+  navigation: StackNavigationProp<RootStackParamList, any>;
+}
+
 export interface PersonnagesScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Personnages">;
+  route: RouteProp<RootStackParamList, "Personnages">
 }
+
+/*export interface DetailsScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
+  route: RouteProp<RootStackParamList, "Details">
+}*/
 
 export interface HistoireScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Histoire">;
